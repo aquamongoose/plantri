@@ -9,6 +9,7 @@ struct plantri *get_plantri(int faces, char *str)
 	struct plantri *ret = malloc(sizeof(struct plantri));
 	int i = 0;
 	int j;
+	ret->N = (faces+4)/2;
 	ret->faces = malloc(sizeof(int *) * faces);
 	//printf("%d faces!\n", faces);
 	while (faces--) {

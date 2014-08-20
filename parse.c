@@ -38,7 +38,7 @@ int main()
 		FILE *infile = fopen("in.txt", "r");
 		while (fscanf(infile, "%d %s\n", &fa, st) == 2) {
 			struct plantri *pt = get_plantri(fa, st);
-			process(pt);
+			process(pt, 0);
 			for (i=0; i<fa; i++)
 				free(pt->faces[i]);
 			free(pt->faces);

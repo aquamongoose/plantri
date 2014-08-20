@@ -3,7 +3,7 @@
 #include "process.h"
 #include "parse.h"
 
-int process_dfs (int at, int N, struct plantri* tri,
+int process_dfs (int at, int N, plantri* tri,
 		 int* val, int* pos, int zero) {
   if (at == 2 * N - 4) {
     int moo = 0;
@@ -31,7 +31,7 @@ int process_dfs (int at, int N, struct plantri* tri,
   }
 }
 
-int process (struct plantri* tri, int zero) {
+int process (plantri* tri, int zero) {
 	printf("in here\n");
   int N = tri -> N;
   int* val = (int*) calloc ((size_t) N, sizeof(int));

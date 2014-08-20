@@ -4,9 +4,9 @@
 #include "parse.h"
 #include "process.h"
 
-struct plantri *get_plantri(int faces, char *str)
+plantri *get_plantri(int faces, char *str)
 {
-	struct plantri *ret = malloc(sizeof(struct plantri));
+	plantri *ret = malloc(sizeof(plantri));
 	int i = 0;
 	int j;
 	ret->N = (faces+4)/2;
@@ -38,7 +38,7 @@ int main()
 		system(cmd);
 		FILE *infile = fopen("in.txt", "r");
 		while (fscanf(infile, "%d %s\n", &fa, st) == 2) {
-			struct plantri *pt = get_plantri(fa, st);
+			plantri *pt = get_plantri(fa, st);
 			process(pt, 0);
 			for (i=0; i<fa; i++)
 				free(pt->faces[i]);

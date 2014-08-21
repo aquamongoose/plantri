@@ -11,7 +11,7 @@ int pow (int a, int b) {
 }
 
 int process_dfs (int at, int N, plantri* tri,
-		 vector<int> &val, vector<int> &pos, int zero) {
+		 vector<int> &val, vector<int> &pos, bool zero) {
   if (at == 2 * N - 4) {
     int moo = 0;
     for (int i = 0; i < N; i++) {
@@ -23,7 +23,7 @@ int process_dfs (int at, int N, plantri* tri,
   else {
     int x[3] = {2, 1, 0};
     int tot = 0;
-    for (int i = 0; i < 3 - !!zero; i++) {
+    for (int i = 0; i < 3 - !zero; i++) {
       for (int j = 0; j < 3; j++) {
 	val[tri -> faces[at][j]] += x[i];
 	val[tri -> faces[at][j]] %= 3;
@@ -38,7 +38,7 @@ int process_dfs (int at, int N, plantri* tri,
   }
 }
 
-void process (plantri* tri, int zero) {
+void process (plantri* tri, bool zero) {
   int N = tri -> N;
   assert (tri -> faces.size() == 2 * N - 4);
   vector<int> val(N);
@@ -47,7 +47,7 @@ void process (plantri* tri, int zero) {
   printf ("There are %d of %d assignments which work.\n", ans, pow(3, N));
 }
 
-void process_all(plantri* tri, int zero) {
+void process_all(plantri* tri, bool zero) {
   int N = tri -> N;
   vector<int> val(N);
   vector<int> pos(1 << (2*N));

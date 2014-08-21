@@ -66,7 +66,10 @@ int main()
 		while (fscanf(infile, "%d %s\n", &nod, st) == 2) {
 			plantri *pt = get_plantri(nod, st);
 			cerr << "start process" << endl;
+			cout << "With + or - only: ";
 			process(pt, 0);
+			cout << "Including 0:      ";
+			process(pt, 1);
 			cerr << "start process" << endl;
 			delete pt;
 		}

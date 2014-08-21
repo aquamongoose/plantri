@@ -38,21 +38,22 @@ int process_dfs (int at, int N, plantri* tri,
   }
 }
 
-void process (plantri* tri, bool zero) {
+int process (plantri* tri, bool zero) {
   int N = tri -> N;
   assert (tri -> faces.size() == 2 * N - 4);
   vector<int> val(N);
   vector<int> pos(pow (3, N));
   int ans = process_dfs (0, N, tri, val, pos, zero);
   printf ("There are %d of %d assignments which work.\n", ans, pow(3, N));
+  return ans;
 }
 
 void process_all(plantri* tri, bool zero) {
   int N = tri -> N;
   vector<int> val(N);
-  vector<int> pos(1 << (2*N));
+  vector<int> pos(pow (3, N));
   int ans = process_dfs (0, N, tri, val, pos, zero);
-  for (int i = 0; i < (1 << (2*N)); i++) {
+  for (int i = 0; i < pow(3, N); i++) {
     if (pos[i] != 0) {
       int c = i;
       for (int j = 0; j < N; j++) {

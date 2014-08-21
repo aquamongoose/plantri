@@ -5,7 +5,7 @@
 // prints the number of unique vertex assignments which
 // correspond to face colorings. If zero != 0, then the
 // possible set is {-1, 0, 1}; else it is {-1, 1}
-void process (plantri* tri, bool zero);
+int process (plantri* tri, bool zero);
 
 // prints the vertex assignments which correspond to face
 // colorings. Similar to process.

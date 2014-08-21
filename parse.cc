@@ -39,7 +39,7 @@ plantri *get_plantri(int n, char *str)
 				ret->faces[curface][0] = cur[0];
 				ret->faces[curface][1] = cur[1];
 				ret->faces[curface][2] = cur[2];
-				printf("found a face %d %d %d\n", cur[0], cur[1], cur[2]);
+				cerr << "found a face " << cur[0] << ' ' << cur[1] << ' ' << cur[2] << endl;
 				curface++;
 			}
 		}
@@ -58,14 +58,16 @@ int main()
 	for (n=3; n<=10; n++) {
 		sprintf(cmd, "./plantri -a %d > in.txt", n);
 		// This is a hack!!!11!1!1! Proceed with caution..
-		if (system(cmd))
+		if (system(cmd)) {
 			cout << "A scary scary error occurred." << endl;
+			return 1;
+		}
 		FILE *infile = fopen("in.txt", "r");
 		while (fscanf(infile, "%d %s\n", &nod, st) == 2) {
 			plantri *pt = get_plantri(nod, st);
-			cout << "start process" << endl;
+			cerr << "start process" << endl;
 			process(pt, 0);
-			cout << "start process" << endl;
+			cerr << "start process" << endl;
 			delete pt;
 		}
 		fclose(infile);

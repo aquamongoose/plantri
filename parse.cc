@@ -68,7 +68,7 @@ int main()
 			cerr << "start process" << endl;
 			cout << "With + or - only: ";
 			process(pt, 0);
-			cout << "Including 0: ";
+			cout << "Including 0:      ";
 			process(pt, 1);
 			cerr << "start process" << endl;
 			delete pt;

@@ -62,17 +62,27 @@ int main()
 			cout << "A scary scary error occurred." << endl;
 			return 1;
 		}
+		int lo = (1 << 30), hi = -lo;
 		FILE *infile = fopen("in.txt", "r");
 		while (fscanf(infile, "%d %s\n", &nod, st) == 2) {
 			plantri *pt = get_plantri(nod, st);
 			cerr << "start process" << endl;
 			cout << "With + or - only: ";
-			process(pt, 0);
+			int p = process(pt, 0);
+			lo = min(lo, p);
+			hi = max(hi, p);
 			cout << "Including 0:      ";
 			process(pt, 1);
 			cerr << "start process" << endl;
 			delete pt;
 		}
+		cout << endl;
+		cout << "Stats for " << n << " nodes: " << endl;
+		cout << "Fewest number of satisfiable assignments for a graph: "
+			 << lo << endl;
+		cout << "Most number of satisfiable assignments for a graph:   "
+			 << hi << endl;
+		cout << endl;
 		fclose(infile);
 	}
 	free(cmd);

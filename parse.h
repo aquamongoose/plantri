@@ -1,8 +1,10 @@
 #ifndef PARSE_H
 #define PARSE_H
+#include <vector>
+using namespace std;
 struct plantri
 {
     int N;
-    int **faces;
+	vector<vector<int> > faces;
 };
 #endif

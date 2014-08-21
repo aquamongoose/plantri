@@ -58,7 +58,8 @@ int main()
 	for (n=3; n<=10; n++) {
 		sprintf(cmd, "./plantri -a %d > in.txt", n);
 		// This is a hack!!!11!1!1! Proceed with caution..
-		system(cmd);
+		if (system(cmd))
+			cout << "A scary scary error occurred." << endl;
 		FILE *infile = fopen("in.txt", "r");
 		while (fscanf(infile, "%d %s\n", &nod, st) == 2) {
 			plantri *pt = get_plantri(nod, st);

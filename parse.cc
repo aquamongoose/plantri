@@ -66,6 +66,7 @@ int main()
 		FILE *infile = fopen("in.txt", "r");
 		while (fscanf(infile, "%d %s\n", &nod, st) == 2) {
 			plantri *pt = get_plantri(nod, st);
+			cout << "\nThis graph:       " << string(st) << endl;
 			cerr << "start process" << endl;
 			cout << "With + or - only: ";
 			int p = process(pt, 0);
@@ -83,6 +84,7 @@ int main()
 		cout << "Most number of satisfiable assignments for a graph:   "
 			 << hi << endl;
 		cout << endl;
+		cout << "====================================================\n";
 		fclose(infile);
 	}
 	free(cmd);

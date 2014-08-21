@@ -2,6 +2,14 @@
 #include "process.h"
 #include "parse.h"
 
+// a ^ b
+int pow (int a, int b) {
+  if (b == 0) return 1;
+  int x = pow (a, b / 2);
+  if (b % 2 == 1) return a * x * x;
+  else return x * x;
+}
+
 int process_dfs (int at, int N, plantri* tri,
 		 vector<int> &val, vector<int> &pos, int zero) {
   if (at == 2 * N - 4) {
@@ -34,9 +42,9 @@ void process (plantri* tri, int zero) {
   int N = tri -> N;
   assert (tri -> faces.size() == 2 * N - 4);
   vector<int> val(N);
-  vector<int> pos(1 << (2*N));
+  vector<int> pos(pow (3, N));
   int ans = process_dfs (0, N, tri, val, pos, zero);
-  printf ("There are %d assignments which work.\n", ans);
+  printf ("There are %d of %d assignments which work.\n", ans, pow(3, N));
 }
 
 void process_all(plantri* tri, int zero) {

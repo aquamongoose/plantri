@@ -1,7 +1,7 @@
 SHELL = /bin/bash
 CC = g++
-CFLAGS = -c -O2 -I $(LIB_PATH)
-LDFLAGS = -O2 -I $(LIB_PATH)
+CFLAGS = -c -O2 -std=c++11 -I $(LIB_PATH)
+LDFLAGS = -O2 -std=c++11 -I $(LIB_PATH)
 
 LIB_PATH = .
 LIB = 	$(LIB_PATH)/process.cc \

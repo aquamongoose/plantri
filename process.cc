@@ -22,7 +22,7 @@ int process_dfs (int at, int N, plantri* tri,
       }
       tot += process_dfs (at + 1, N, tri, val, pos, zero);
       for (int j = 0; j < 3; j++) {
-	val[tri -> faces[at][j]] -= 3 - x[i];
+	val[tri -> faces[at][j]] += 3 - x[i];
 	val[tri -> faces[at][j]] %= 3;
       }
     }
@@ -32,6 +32,7 @@ int process_dfs (int at, int N, plantri* tri,
 
 void process (plantri* tri, int zero) {
   int N = tri -> N;
+  assert (tri -> faces.size() == 2 * N - 4);
   vector<int> val(N);
   vector<int> pos(1 << (2*N));
   int ans = process_dfs (0, N, tri, val, pos, zero);

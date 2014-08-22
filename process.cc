@@ -18,7 +18,8 @@ int process_dfs (int at, int N, plantri* tri,
       moo *= 3;
       moo += val[i];
     }
-    return pos[moo] ? 0 : (pos[moo] = 1);
+    pos[moo]++;
+    return pos[moo] == 1;
   }
   else {
     int x[3] = {2, 1, 0};

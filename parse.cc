@@ -76,6 +76,9 @@ int main()
 			cout << "Including 0:      ";
 			process(pt, 1);
 			cerr << "start process\n";
+                        /* if (is_chi_three(pt)) {
+                                process_all(pt, 0);
+                        } */
 			delete pt;
 		}
 		cout << endl;

@@ -69,13 +69,13 @@ int main()
 			cout << endl << "This graph:       " << string(st) << "\n";
                         cout << "Is three colorable: " << is_chi_three(pt)<< "\n";
 			cerr << "start process\n";
-			cout << "With + or - only: ";
+			//cout << "With + or - only: ";
 			int p = process(pt, 0);
 			lo = min(lo, p);
 			hi = max(hi, p);
-			cout << "Including 0:      ";
-			process(pt, 1);
-			cerr << "start process\n";
+			//cout << "Including 0:      ";
+			//process(pt, 1);
+			cerr << "end process\n";
 			delete pt;
 		}
 		cout << endl;

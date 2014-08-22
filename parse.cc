@@ -67,7 +67,7 @@ int main()
 		while (fscanf(infile, "%d %s\n", &nod, st) == 2) {
 			plantri *pt = get_plantri(nod, st);
 			cout << endl << "This graph:       " << string(st) << "\n";
-                        cout << "Is three colorable: " << is_chi_three(pt)<< "\n";
+			cout << "Is three colorable: " << is_chi_three(pt)<< "\n";
 			cerr << "start process\n";
 			//cout << "With + or - only: ";
 			int p = process(pt, 0);
@@ -76,14 +76,17 @@ int main()
 			//cout << "Including 0:      ";
 			//process(pt, 1);
 			cerr << "end process\n";
+			/* if (is_chi_three(pt)) {
+			   process_all(pt, 0);
+			   } */
 			delete pt;
 		}
 		cout << endl;
 		cout << "Stats for " << n << " nodes: " << endl;
 		cout << "Fewest number of satisfiable assignments for a graph: "
-			 << lo << endl;
+			<< lo << endl;
 		cout << "Most number of satisfiable assignments for a graph:   "
-			 << hi << endl;
+			<< hi << endl;
 		cout << endl;
 		cout << "====================================================\n";
 		fclose(infile);

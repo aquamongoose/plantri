@@ -10,4 +10,7 @@ int process (plantri* tri, bool zero);
 // prints the vertex assignments which correspond to face
 // colorings. Similar to process.
 void process_all (plantri* tri, bool zero);
+
+// checks if the chromatic number of the graph is three
+bool is_chi_three (plantri* tri);
 #endif

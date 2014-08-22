@@ -66,15 +66,16 @@ int main()
 		FILE *infile = fopen("in.txt", "r");
 		while (fscanf(infile, "%d %s\n", &nod, st) == 2) {
 			plantri *pt = get_plantri(nod, st);
-			cout << "\nThis graph:       " << string(st) << endl;
-			cerr << "start process" << endl;
+			cout << endl << "This graph:       " << string(st) << "\n";
+                        cout << "Is three colorable: " << is_chi_three(pt)<< "\n";
+			cerr << "start process\n";
 			cout << "With + or - only: ";
 			int p = process(pt, 0);
 			lo = min(lo, p);
 			hi = max(hi, p);
 			cout << "Including 0:      ";
 			process(pt, 1);
-			cerr << "start process" << endl;
+			cerr << "start process\n";
 			delete pt;
 		}
 		cout << endl;

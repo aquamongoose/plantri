@@ -64,3 +64,30 @@ void process_all(plantri* tri, bool zero) {
     }
   }
 }
+
+bool is_chi_three_dfs(int at, int N, vector <int> &moo, plantri* tri) {
+  if (at == N) return true;
+  bool ok[3] = {true, true, true};
+  for (int i = 0; i < 2 * N - 4; i++) {
+    for (int j = 0; j < 3; j++) {
+      for (int k = 0; k < 3; k++) {
+        if (tri -> faces[i][j] == at && tri -> faces[i][k] < at) {
+          ok[moo[tri -> faces[i][k]]] = false;
+        }
+      }
+    }
+  }
+  for (int i = 0; i < 3; i++) {
+    if (ok[i]) {
+      moo[at] = i;
+      if (is_chi_three_dfs(at + 1, N, moo, tri)) return true;
+    }
+  }
+  return false;
+}
+ 
+bool is_chi_three(plantri* tri) {
+  int N = tri -> N;
+  vector <int> val(N);
+  return is_chi_three_dfs (0, N, val, tri);
+}

@@ -55,7 +55,7 @@ int main()
 	int nod;
 	char *st = (char *)malloc(10000);
 	int i;
-	for (n=4; n<=10; n++) {
+	for (n=4; n<=20; n++) {
 		sprintf(cmd, "./plantri -a %d > in.txt", n);
 		// This is a hack!!!11!1!1! Proceed with caution..
 		if (system(cmd)) {

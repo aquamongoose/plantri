@@ -92,3 +92,17 @@ bool is_chi_three(plantri* tri) {
   vector <int> val(N);
   return is_chi_three_dfs (0, N, val, tri);
 }
+
+int odd_degree(plantri* tri) {
+  int N = tri -> N, tot = 0;
+  vector <bool> moo(N);
+  for (int i = 0; i < 2 * N - 4; i++) {
+    for (int j = 0; j < 3; j++) {
+      moo[tri -> faces[i][j]] = !moo[tri -> faces[i][j]];
+    }
+  }
+  for (int i = 0; i < N; i++) {
+    tot += moo[i];
+  }
+  return tot;
+}

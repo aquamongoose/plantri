@@ -13,4 +13,7 @@ void process_all (plantri* tri, bool zero);
 
 // checks if the chromatic number of the graph is three
 bool is_chi_three (plantri* tri);
+
+// returns the number of vertices
+int odd_degree(plantri* tri);
 #endif

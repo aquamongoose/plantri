@@ -1,2 +1,3 @@
-dat <- read.table("~/Downloads/12R.txt");
-hist(dat$V1);
+library("igraph")
+dat <- read.table("moo.txt", header = TRUE)
+g <- graph.edgelist(as.matrix(dat))

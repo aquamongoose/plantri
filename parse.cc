@@ -55,6 +55,7 @@ int main()
 	int nod;
 	char *st = (char *)malloc(10000);
 	int i;
+        FILE *outfile = fopen("out.txt", "w");
 	for (n=4; n<=20; n++) {
 		sprintf(cmd, "./plantri -a %d > in.txt", n);
 		// This is a hack!!!11!1!1! Proceed with caution..
@@ -71,6 +72,8 @@ int main()
 			cerr << "start process\n";
 			//cout << "With + or - only: ";
 			int p = process(pt, 0);
+                        fprintf (outfile, "%d %d %f\n", n, odd_degree(pt), p / pow(3.0, n));
+                        fflush (outfile);
 			lo = min(lo, p);
 			hi = max(hi, p);
 			//cout << "Including 0:      ";
@@ -91,6 +94,7 @@ int main()
 		cout << "====================================================\n";
 		fclose(infile);
 	}
+        fclose(outfile);
 	free(cmd);
 	free(st);
 	return 0;

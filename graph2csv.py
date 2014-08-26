@@ -9,3 +9,12 @@ for fname in sys.argv[1:]:
                 en = ord(end)-ord('a')
                 if st < en:
                     print(st, en, 'Undirected', sep=',')
+
+if len(sys.argv) == 1:
+    print('Source,Target,Type')
+    adj = input().strip().split(',')
+    for (st, to) in enumerate(adj):
+        for end in to:
+            en = ord(end)-ord('a')
+            if st < en:
+                print(st, en, 'Undirected', sep=',')
